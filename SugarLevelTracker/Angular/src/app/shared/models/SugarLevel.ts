@@ -3,4 +3,4 @@ export default class SugarLevel {
     value: number;
     description: string;
     measuredAt: string;
-  }
+  } 
