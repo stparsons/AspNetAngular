@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -24,6 +25,12 @@ namespace SugarLevelTracker
             // Enable CORS for the Angular App
             var cors = new EnableCorsAttribute( "http://localhost:4200", "*", "*" );
             config.EnableCors( cors );
+
+            // Set JSON formatter as default one and remove XmlFormatter
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.Remove( config.Formatters.XmlFormatter );
+            jsonFormatter.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
         }
     }
 }
