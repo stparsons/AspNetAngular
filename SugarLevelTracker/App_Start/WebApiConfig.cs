@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace SugarLevelTracker
 {
@@ -19,6 +20,10 @@ namespace SugarLevelTracker
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Enable CORS for the Angular App
+            var cors = new EnableCorsAttribute( "http://localhost:4200", "*", "*" );
+            config.EnableCors( cors );
         }
     }
 }
