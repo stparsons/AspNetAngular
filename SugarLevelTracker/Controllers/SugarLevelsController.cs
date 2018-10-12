@@ -14,6 +14,7 @@ using SugarLevelTracker.Models;
 
 namespace SugarLevelTracker.Controllers
 {
+    [Authorize]
     public class SugarLevelsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();

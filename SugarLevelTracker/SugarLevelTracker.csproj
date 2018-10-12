@@ -187,6 +187,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SugarLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
